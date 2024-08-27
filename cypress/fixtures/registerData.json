@@ -1,0 +1,14 @@
+{
+  "firstName": "test",
+  "lastName": "QA",
+  "password": "MegaTest12345",
+  "telephone": "123456789",
+  "searchProduct": "Mac",
+  "loginData": 
+    {
+      "emailAddress": "megatester@mailinator.com",
+      "password": "MegaTest12345",
+      "wrongPassword": "Dummy12345"
+    }
+}
+

@@ -1,0 +1,8 @@
+{
+    "errorMessages":
+    {
+        "accountCreationMsg" : "Your Account Has Been Created!",
+        "alreadyRegisteredMsg" : " Warning: E-Mail Address is already registered!",
+        "wrongPwdMsg" : " Warning: No match for E-Mail Address and/or Password."
+    }
+}
