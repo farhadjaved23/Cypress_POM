@@ -7,7 +7,12 @@ export class cartPage {
         price1: '#content > form > div > table > tbody > tr:nth-child(1) > td:nth-child(6)',
         price2: '#content > form > div > table > tbody > tr:nth-child(2) > td:nth-child(6)',
         totalPriceText: '#content > div.row > div > table > tbody > tr:nth-child(4) > td:nth-child(2)',
-        cartProd: '#content > form > div > table > tbody'
+        cartProd: '#content > form > div > table > tbody',
+        cartTable: '#content > form > div > table',
+        productText: '#content > form > div > table > tbody > tr > td:nth-child(2) > a'
+    }
+    openCart(){
+        cy.visit(Cypress.env('cart').URL)
     }
     clickCart() {
         cy.get(this.weblocators.cartBtn).click()
@@ -23,6 +28,26 @@ export class cartPage {
             .then(text => {
                 return text
             })
+    }
+    getCartText()
+    {
+        this.openCart()
+        let ProductTable = []
+        cy.get(this.weblocators.cartTable).find('tbody tr').each(($row, index,) => {
+            cy.log('Roww '+$row.text())
+                const cellText = $row.text().trim();
+                ProductTable.push(cellText); 
+        }).then(() => {
+            ProductTable.forEach(function(product)
+            {
+                if(!product.includes('***'))
+                {  
+                    const index = ProductTable.indexOf(product)
+                    cy.get(`#content > form > div > table > tbody > tr:nth-child(${index}) > td:nth-child(4) > div > span > button.btn.btn-danger`).click()
+                    cy.get('#content > form > div > table > tbody > tr > td:nth-child(2) > a').should('not.contain', '***');
+                }
+            })
+        });
     }
     assertTotalPrice() {
         cy.get(this.weblocators.price1).invoke('text')

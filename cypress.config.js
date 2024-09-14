@@ -13,6 +13,9 @@ module.exports = defineConfig({
       },
       main:{
         URL: 'https://naveenautomationlabs.com/opencart/index.php?route=account/register'
+      },
+      cart: {
+        URL: 'https://naveenautomationlabs.com/opencart/index.php?route=checkout/cart'
       }
     },
    

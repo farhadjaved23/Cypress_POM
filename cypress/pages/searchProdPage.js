@@ -15,6 +15,9 @@ export class searchProdPage {
         dateBtn: '#product > div:nth-child(11) > div > span > button',
         dateElement: 'body > div.bootstrap-datetimepicker-widget.usetwentyfour.dropdown-menu.picker-open.top.pull-right > ul > li.collapse.in > div > div.datepicker-days > table > tbody > tr:nth-child(4) > td:nth-child(7)',
         calenderPicker: 'body > div.bootstrap-datetimepicker-widget.usetwentyfour.dropdown-menu.picker-open.bottom.pull-right > ul > li.collapse.in > div > div.datepicker-days > table > tbody',
+        cartIcon: '#content > div:nth-child(8) > div:nth-child(1) > div > div:nth-child(2) > div.button-group > button:nth-child(1)',
+        menuBar: '#menu > div.collapse.navbar-collapse.navbar-ex1-collapse',
+        cartBtn: '#content > div:nth-child(3) > div:nth-child(1) > div > div:nth-child(2) > div.button-group > button:nth-child(1)'
     }
 
     enterProduct(productName) {
@@ -34,6 +37,19 @@ export class searchProdPage {
     }
     clickCart2() {
         cy.get(this.weblocators.phoneCart2).click()
+    }
+    clickAddtoCardIcon()
+    {
+        cy.get(this.weblocators.cartIcon).click()
+    }
+    clickMobileMenu()
+    {
+        cy.get(this.weblocators.menuBar).contains('Phones & PDAs')
+        .click()
+    }
+    clickCartBtn()
+    {
+        cy.get(this.weblocators.cartBtn).click()
     }
     selectFormattedDate() {
         cy.log(`${month}/${day}/${year}`)

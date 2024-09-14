@@ -4,6 +4,7 @@
   "password": "MegaTest12345",
   "telephone": "123456789",
   "searchProduct": "Mac",
+  "searchProduct2":  "MacBook",
   "loginData": 
     {
       "emailAddress": "megatester@mailinator.com",
