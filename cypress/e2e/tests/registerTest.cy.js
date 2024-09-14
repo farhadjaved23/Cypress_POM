@@ -1,9 +1,11 @@
 import { registerPage } from "../../pages/registerPage"
+import { accountPage } from "../../pages/accountPage"
 import { getRandfrom1To100 }  from "../../support/utils"
 import registerData from "../../fixtures/registerData.json"
 import message from "../../fixtures/messages.json"
 
 const registerObj = new registerPage()
+const accountObj = new accountPage()
 
 describe ('Test Automation', () =>{
 
@@ -17,7 +19,8 @@ describe ('Test Automation', () =>{
         registerObj.enterConfirmPwd(registerData.password)
         registerObj.selectCheckbox()
         registerObj.clickContinue()
-        registerObj.assertAccountMessage(message.errorMessages.accountCreationMsg)
+
+        accountObj.assertAccountMessage(message.errorMessages.accountCreationMsg)
     })
 
     it('Register with same Email Flow', () => {

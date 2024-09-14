@@ -10,7 +10,6 @@ export class registerPage {
         confirmPwd: '#input-confirm',
         policyCheckbox: '#content > form > div > div > input[type=checkbox]:nth-child(2)',
         continue: '#content > form > div > div > input.btn.btn-primary',
-        accountMessage: '#content > h1',
         errorMessage: '#account-register > div.alert.alert-danger.alert-dismissible'
     }
 
@@ -52,13 +51,6 @@ export class registerPage {
     clickContinue()
     {
         cy.get(this.weblocators.continue).click()
-    }
-    assertAccountMessage(creationMsg)
-    {
-        cy.get(this.weblocators.accountMessage).invoke('text')
-        .then((text) =>{
-            expect(text).to.eq(creationMsg)
-        })
     }
     assertSameEmailMsg(errorMsg)
     {

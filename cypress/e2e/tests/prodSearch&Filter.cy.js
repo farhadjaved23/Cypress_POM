@@ -1,63 +1,85 @@
 import { registerPage } from "../../pages/registerPage"
+import { productPage } from "../../pages/productPage"
+import { cartPage } from "../../pages/cartPage"
+import { compareProdPage } from "../../pages/compareProdPage"
 import { searchProdPage } from "../../pages/searchProdPage"
 import registerData from "../../fixtures/registerData.json"
 
 const registerObj = new registerPage()
 const searchObj = new searchProdPage()
+const productObj = new productPage()
+const compareProdObj = new compareProdPage()
+const cartObj = new cartPage()
 
 describe ('Test Automation', () =>{
-    // it('Verify the searched text', () => {
-    //     registerObj.openURL()
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
-    //     searchObj.assertSearchedText(registerData.searchProduct)
-    // })
+    it('Verify the searched text', () => {
+        registerObj.openURL()
 
-    // it('Verify the random selected currency', () => {
-    //     registerObj.openURL()
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
-    //     searchObj.assertCurrency()
-    // })
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
 
-    // it('Verify the count of the products after searching', () => {
-    //     registerObj.openURL()
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
-    //     searchObj.getCardCount()
-    // })
+        productObj.assertSearchedText(registerData.searchProduct)
+    })
 
-    // it('Verify the comparison of the products', () => {
-    //     registerObj.openURL()
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
-    //     searchObj.clickRandCompareBtn()
-    //     searchObj.clickRandCompareBtn2()
-    //     searchObj.clickCompareLink()
-    //     searchObj.assertComparedProd()
-    // })
+    it('Verify the random selected currency', () => {
+        registerObj.openURL()
+
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        
+        productObj.assertCurrency()
+    })
+
+    it('Verify the count of the products after searching', () => {
+        registerObj.openURL()
+
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        
+        productObj.getCardCount()
+    })
 
     it('Verify the comparison of the products', () => {
         registerObj.openURL()
+
         searchObj.enterProduct(registerData.searchProduct+"{enter}")
-        searchObj.clickRandCompareBtn()
-        searchObj.clickRandCompareBtn2()
-        searchObj.clickCompareLink()
-        searchObj.addToCartProd()
-        searchObj.clickCart()
-        searchObj.clickViewCart()
-        searchObj.assertCartProd()
+        
+        productObj.clickRandCompareBtn()
+        productObj.clickRandCompareBtn2()
+        productObj.clickCompareLink()
+        
+        compareProdObj.assertComparedProd()
     })
 
-    // it('Verify the comparison of the products', () => {
-    //         registerObj.openURL()
-    //         searchObj.clickPhone()
-    //         searchObj.clickCart1()
-    //         searchObj.clickCart2()
-    //         searchObj.clickCart()
-    //         searchObj.clickViewCart()
-    //         searchObj.assertTotalPrice()
+    it('Verify the comparison of the products', () => {
+        registerObj.openURL()
+
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        
+        productObj.clickRandCompareBtn()
+        productObj.clickRandCompareBtn2()
+        productObj.clickCompareLink()
+        
+        cartObj.addToCartProd()
+        cartObj.clickCart()
+        cartObj.clickViewCart()
+        cartObj.assertCartProd()
+    })
+
+    it('Verify the comparison of the products', () => {
+            registerObj.openURL()
+
+            searchObj.clickPhone()
+
+            productObj.clickCart1()
+            productObj.clickCart2()
             
-    //     })
-    // it('Verify the comparison of the products', () => {
-    //     registerObj.openURL()
-    //     searchObj.checkText() 
-    // })
+            cartObj.clickCart()
+            cartObj.clickViewCart()
+            cartObj.assertTotalPrice()      
+        })
+
+    it('Verify the comparison of the products', () => {
+        registerObj.openURL()
+        
+        productObj.checkText() 
+    })
 
 })

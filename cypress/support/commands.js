@@ -23,4 +23,26 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('shouldBeVisible', (selector) => {
+    cy.get(selector).should('be.visible');
+  });
+
+Cypress.Commands.add('shouldBeVisibleForElements', (selector) => {
+    cy.get(selector).each(($el) => {
+             cy.wrap($el).should('be.visible')
+    })
+  });
+
+  Cypress.Commands.add('waitForElement', (selector, timeout = 10000) => {
+    cy.get(selector, { timeout }).should('be.visible');
+  });
+
+  Cypress.Commands.add('assertAttValue', (selector, accEmail) => {
+    cy.get(selector).invoke('attr','value')
+    .then(expectedEmail => {
+        expect(expectedEmail).to.eq(accEmail)
+    })
+  });
+
 import 'cypress-file-upload';

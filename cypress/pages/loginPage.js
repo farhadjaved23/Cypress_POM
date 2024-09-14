@@ -5,8 +5,6 @@ export class loginPage {
         emailField: 'input[name="email"]',
         passwordField: 'input[name="password"]',
         loginBtn: 'input[value="Login"]',
-        accountLink: '#content > ul:nth-child(2) > li:nth-child(1) > a',
-        accountEmailField: '#input-email',
         errorMsg: '#account-login > div.alert.alert-danger.alert-dismissible'
     }
 
@@ -25,23 +23,9 @@ export class loginPage {
     {
         cy.get(this.weblocators.loginBtn).click()
     }
-    selectAccountPage()
-    {
-        cy.get(this.weblocators.accountLink).click()
-    }
-    assertEmail(accEmail)
-    {
-        cy.get(this.weblocators.accountEmailField).invoke('attr','value')
-        .then(expectedEmail => {
-            expect(expectedEmail).to.eq(accEmail)
-        })
-    }
     assertWrongPwd(accEmail)
     {
-        cy.get(this.weblocators.accountEmailField).invoke('attr','value')
-        .then(expectedEmail => {
-            expect(expectedEmail).to.eq(accEmail)
-        })
+        cy.assertAttValue(this.weblocators.accountEmailField,accEmail)
     }
     assertErrorMessage(errorMsg)
     {
