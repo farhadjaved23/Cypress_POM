@@ -14,102 +14,89 @@ const cartObj = new cartPage()
 const loginObj = new loginPage()
 
 describe ('Test Automation', () =>{
-    // it('Verify the searched text', () => {
-    //     registerObj.openURL()
+    it('Verify the searched text', () => {
+        registerObj.openURL()
 
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
 
-    //     productObj.assertSearchedText(registerData.searchProduct)
-    // })
+        productObj.assertSearchedText(registerData.searchProduct)
+    })
 
-    // it('Verify the random selected currency', () => {
-    //     registerObj.openURL()
+    it('Verify the random selected currency', () => {
+        registerObj.openURL()
 
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
         
-    //     productObj.assertCurrency()
-    // })
+        productObj.assertCurrency()
+    })
 
-    // it('Verify the count of the products after searching', () => {
-    //     registerObj.openURL()
+    it('Verify the count of the products after searching', () => {
+        registerObj.openURL()
 
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
         
-    //     productObj.getCardCount()
-    // })
+        productObj.getCardCount()
+    })
 
-    // it('Verify the comparison of the products', () => {
-    //     registerObj.openURL()
+    it('Verify the comparison of the products', () => {
+        registerObj.openURL()
 
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
         
-    //     productObj.clickRandCompareBtn()
-    //     productObj.clickRandCompareBtn2()
-    //     productObj.clickCompareLink()
+        productObj.clickRandCompareBtn()
+        productObj.clickRandCompareBtn2()
+        productObj.clickCompareLink()
         
-    //     compareProdObj.assertComparedProd()
-    // })
+        compareProdObj.assertComparedProd()
+    })
 
-    // it('Verify the comparison of the products', () => {
-    //     registerObj.openURL()
+    it('Verify the comparison of the products', () => {
+        registerObj.openURL()
 
-    //     searchObj.enterProduct(registerData.searchProduct+"{enter}")
+        searchObj.enterProduct(registerData.searchProduct+"{enter}")
         
-    //     productObj.clickRandCompareBtn()
-    //     productObj.clickRandCompareBtn2()
-    //     productObj.clickCompareLink()
+        productObj.clickRandCompareBtn()
+        productObj.clickRandCompareBtn2()
+        productObj.clickCompareLink()
         
-    //     cartObj.addToCartProd()
-    //     cartObj.clickCart()
-    //     cartObj.clickViewCart()
-    //     cartObj.assertCartProd()
-    // })
+        cartObj.addToCartProd()
+        cartObj.clickCart()
+        cartObj.clickViewCart()
+        cartObj.assertCartProd()
+    })
 
-    // it('Verify the comparison of the products', () => {
-    //         registerObj.openURL()
+    it('Verify the comparison of the products', () => {
+            registerObj.openURL()
 
-    //         searchObj.clickPhone()
+            searchObj.clickPhone()
 
-    //         productObj.clickCart1()
-    //         productObj.clickCart2()
+            productObj.clickCart1()
+            productObj.clickCart2()
             
-    //         cartObj.clickCart()
-    //         cartObj.clickViewCart()
-    //         cartObj.assertTotalPrice()      
-    //     })
+            cartObj.clickCart()
+            cartObj.clickViewCart()
+            cartObj.assertTotalPrice()      
+        })
 
-    // it('Verify the comparison of the products', () => {
-    //     registerObj.openURL()
+    it('Verify the comparison of the products', () => {
+        registerObj.openURL()
         
-    //     productObj.checkText() 
-    // })
+        productObj.checkText() 
+    })
 
-    // it('Verify the asterisk products', () => {
-    //     loginObj.openURL()
-
-    //     loginObj.enterEmail(registerData.loginData.emailAddress)
-    //     loginObj.enterPassword(registerData.loginData.password)
-    //     loginObj.submitLoginBtn()
-
-    //     searchObj.enterProduct(registerData.searchProduct2+"{enter}")
-    //     searchObj.clickAddtoCardIcon()
-    //     searchObj.clickMobileMenu()
-    //     searchObj.clickCartBtn()
-
-    //     cartObj.getCartText()
-    // })
-
-    it('Verify the scenario of the available products from menuBar', () => {
+    it('Verify the asterisk products', () => {
         loginObj.openURL()
 
         loginObj.enterEmail(registerData.loginData.emailAddress)
         loginObj.enterPassword(registerData.loginData.password)
         loginObj.submitLoginBtn()
 
-        searchObj.clickComponentsManuBar()
-        searchObj.getComponentsText()
-        searchObj.assertProductCount()
+        searchObj.enterProduct(registerData.searchProduct2+"{enter}")
+        searchObj.clickAddtoCardIcon()
+        searchObj.clickMobileMenu()
+        searchObj.clickCartBtn()
 
+        cartObj.getCartText()
     })
 
 })
